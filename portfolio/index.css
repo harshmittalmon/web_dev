@@ -1,0 +1,244 @@
+@import 'utility.css';
+*{
+    margin: 0;padding: 0;box-sizing: border-box;
+    --webkit-font-smotthing:anitialised;
+}
+:root{
+    --main-color : rgb(104, 207, 214);
+    --blackest: rgba(0, 0, 0, 0.594);
+    --dark: #161616;
+    --pure: #FFFFFF;
+    --light: #f2f2f2c9;
+    
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    background-color: var(--main-color);
+    font-family: 'poppins';
+}
+.body-bg{
+    position: fixed;
+    z-index: -1;
+    height: 100vh;
+    width:100vw;
+    top: 0px;
+}
+.body-bg2{
+    position: fixed;
+    z-index: -1;
+    height: 100vh;
+    width:100vw;
+    top: 0px;
+    background-color:rgba(0, 0, 0, 0.7);
+    
+}
+header{
+    background-color: #000000;
+    /* clip-path: polygon(0 0, 100vw 0, 100vw 10vh, 99vw 100vh,0vw 100vh); */
+    height: 100vh;
+}
+.guiders *{
+    text-decoration: none;
+}
+.container{
+    width: max(1150px);
+    margin: 0 auto;
+    
+}
+nav div div img{
+    margin-right: 3rem;
+    width:5rem;
+}
+nav .left a{
+    margin-right: 2rem;
+    color:var(--pure);
+    text-transform:uppercase;
+    font-weight:600;
+    transition:all 0.4s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+nav .left a:hover{
+    color: var(--main-color);
+}
+nav div.right{
+    margin-right:2rem;
+}
+header .container .right{
+    margin-right: 3rem;
+}
+
+header nav{
+    padding: 2rem;
+}
+.about .container{
+    background-color: rgba(255, 255, 255, 0.7);
+}
+.hero .left{
+    margin-right:3rem;
+    /* display: flex;
+    justify-content: center; */
+}
+header div div .left img{
+    width: 25vw;
+    height: auto;
+}
+header div div .right *{
+    color: white;
+}
+header div div .right span{
+    color: var(--main-color);
+    font-weight: 100;
+    /* font-size: 5rem;  */
+}
+.hero .right h6{
+    color: var(--main-color);
+    font-size:1.6rem;
+    margin-bottom: 1.4rem;
+    letter-spacing: 0.5rem ;
+    font-family: 'Lexend Peta', sans-serif;
+}
+header div div .right h1{
+    font-size: 4rem;
+    font-weight: 100;
+    line-height: 1.1;
+    margin-bottom : 1.4rem;
+}
+header div div .right p{
+    line-height: 1.9;margin-bottom:2rem;
+}
+.hero .right .btn{
+    margin-bottom: 3rem;
+}
+section.about{
+    height: 100vh;
+    width:100vw;
+    opacity: 1;
+    z-index: 2;
+}
+.about{
+    margin: 7rem 0;
+}
+.about .container{
+    margin: 8rem;
+    border:2px solid var(--main-color);
+    height: 90%;
+}
+.about .container .about-pic{
+    position: relative;
+    width: 100%;height: 100%;
+}   
+
+.about-pic img{
+    position: relative;
+    height: 100%;
+    width:auto; 
+}
+
+.about .container .about-content h2{
+    font-size: 2rem;
+    margin: 1.6rem 0;
+}
+.about .container .about-content h2 span{
+    color:#064f67;
+}
+.about .container .about-content h4{
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+.about .container .about-content h4 span{
+    color: #064f67;
+}
+.about .container .about-content p{
+    line-height: 1.8rem;
+    font-weight: 500;
+}
+.about .container .about-content .about-links{
+    margin-top: 4rem;
+}
+.about .container .about-content .about-links a{
+    width:35px;
+    height:35px;
+    background-color: #000000f4;
+    border-radius: 50%;
+    color: rgb(255, 255, 255);
+}
+
+
+.services{
+    background-color: rgb(239, 228, 228);
+    color: rgb(0, 0, 0);
+    padding: 7rem 0;
+}
+
+.services .container h1{
+    margin: 1rem 0;
+    text-align: center;
+    color: var(--main-color);
+}
+.services .container p{
+    margin: 1rem 0;text-align: center;
+    /* font-family: fantasy;    */
+}
+.services .container .card-wrapper{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    row-gap: 3rem;
+    column-gap: 3rem;
+    margin-top: 7rem;
+}
+
+.services .container .card-wrapper .card{
+    border: 2px solid var(--main-color);
+    /* height: 15rem; */
+    position: relative;
+    padding: 4rem;
+    padding-bottom: 2rem;
+    padding-top:14rem;
+}
+.services .container .card-wrapper .card img{
+    /* width: 280px;height: 250px; */
+    position:absolute;
+    top: 0;left: 0;
+    width: 100%;height: 100%;
+}
+.services .container .card-wrapper .card{
+    text-align: center;
+}
+.services .container .card-wrapper .card:hover{
+    transition: all 0.4s ease;
+    
+}
+
+.overlay{
+    position: absolute;
+    z-index: 1;
+    top: 0;left: 0;
+    width: 100%;
+    height: 90%;
+    flex-direction: column;
+    background: rgba(87, 239, 242,0.8);
+    opacity: 0;
+    justify-content: center;
+}
+.overlay:hover{
+    opacity: 1;
+    transition: all 0.4s ease;
+}
+
+
+
+.footer{
+    width: 100%;
+    height:70vh;
+    background-color: black;
+    color : rgb(137, 128, 128);
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer p{
+    
+}

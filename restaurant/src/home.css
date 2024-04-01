@@ -1,0 +1,78 @@
+@font-face {
+    font-family: 'sometime-font';
+    src: url(./fonts/sometime-font.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'normal-font';
+    src: url(./fonts/normal-font.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'heading-font';
+    src: url(./fonts/heading-font.otf) format('opentype');
+}
+#main-section {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 5rem 0 0 5rem;
+    background-image: url(./images/food-bg-2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+#home-card {
+    padding: 3rem 2.5rem;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between ;
+    align-items: center;
+    gap: 5rem;
+    width: 20rem;
+    font-family: 'normal-font','Sora', 'Times New Roman', Times, serif;
+}
+
+#home-card-heading {
+    font-size: 5rem;
+}
+#home-card-text {
+    font-size: 3rem;
+    font-weight: 300;
+}
+#home-card-btn {
+    background-color: #ea761d;
+    width: 12rem;
+    padding: 0.7rem 2rem;
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    border: 1px solid black;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+}
+
+#home-card-btn:hover {
+    color: black;
+    background-color: #ffffff;
+}
+@media (max-width:900px){
+    .main-section{
+        justify-content:center ;
+        align-items: center;
+        gap: 20px;
+        padding: 2rem;
+    }
+    #home-card{
+        padding: 2rem 1rem;
+        gap: 4rem;
+        width: 15rem;
+    }
+    #home-card-heading{
+        font-size: 3rem;
+    }
+    #home-card-text{
+        font-size: 2rem;
+    }
+}

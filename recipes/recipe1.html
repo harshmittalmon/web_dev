@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0px;
+            padding: 0px;
+        }
+        body {
+            background: linear-gradient(90deg, rgb(209, 13, 13), rgb(50, 100, 74));
+            margin: 0px;
+
+        }
+
+        div {
+            margin-left: 40px;
+            height: 60vh;
+            width: 80vw;
+            color: aliceblue;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+
+    
+        img {
+            border-radius: 50px;
+            border: 4px solid black;
+            
+        }
+        .navobj1, .navobj2{
+            border:4px solid rgb(191, 68, 136);
+            height:40px;
+            width:300px;
+            box-sizing:border-box;
+
+        }
+        
+        nav{
+            display: flex;
+            height:40px;
+            border:2px solid rgb(153, 197, 31);
+            background:rgb(54, 51, 51);
+            justify-content:space-between;
+        }
+        .nav1,.nav2,.nav3{
+            box-sizing: border-box;
+            border:1px solid rgb(52, 139, 176);
+            height: 30px;
+            width: 80px;
+            margin:0px;
+
+        }
+        .navobj1{
+            flex-direction: row-reverse;
+            gap:20px;
+            justify-content: space-around;
+        }
+        .navobj2{
+            align-self:right;
+        }
+        .maindiv{
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="navobj1" >
+            <div class="nav1">Home</div>
+            <div class="nav2">Address</div>
+            <div class="nav3">More info</div>
+        </div>
+        <div class="navobj2">
+            
+            
+        </div>
+    </nav>
+    <div class="maindiv">
+        <img src="btrchkn.jpg" height="400" alt="">
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam tempora magni vitae maxime ratione id neque
+            sed deleniti recusandae repellendus.
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure, incidunt. Ab, necessitatibus facere dicta
+            ipsum eveniet laboriosam nobis blanditiis maxime dolorem ipsa at fugiat, cupiditate corporis saepe facilis
+            commodi laudantium quae, laborum mollitia eos ad illum quaerat accusamus natus! Delectus adipisci expedita,
+            blanditiis veniam culpa aliquid repudiandae recusandae unde est!
+        </p>
+    </div>
+
+</body>
+
+</html>
