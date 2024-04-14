@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import resume_img from "./assets/resume_icon.png";
 import viteLogo from "/vite.svg";
 import "./App.css";
@@ -15,8 +15,9 @@ function App() {
   const fullName = `${firstName} ${lastName}`;
 
   const [qualifications, setQualifications] = useState([]);
+  const [experience, setExperience] = useState([]);
 
-  const [experiences, setExperience ] = useState([]);
+
   function handleAddQualification(qual) {
     setQualifications((qualifications) => [...qualifications, qual]);
   }
@@ -26,15 +27,19 @@ function App() {
       return qualifications.filter((qualification) => qualification.id !== qual.id);
     });
   }
+
   function handleAddExperience(exp) {
-    setExperience((experiences) => [...experiences, exp ]);
+    // console.log("Function Called")
+    setExperience((experiences) => [...experiences, exp]);
+
   }
   function handleDeleteExperience(exp) {
     setExperience((experiences) => {
       // RETURN STATEMENT NECESSARY 
-      return experiences.filter(( experience ) => experience.id !== exp.id);
+      return experiences.filter((experience) => experience.id !== exp.id);
     });
   }
+
 
   return (
     <>
@@ -60,9 +65,7 @@ function App() {
           qualifications={qualifications}
         />
         <Experience_List
-          onAddExperience = {handleAddExperience}
-          onDeleteExperience = {handleDeleteExperience}
-          experiences = {experiences}
+          handleAddExperience={handleAddExperience} handleDeleteExperience={handleDeleteExperience} experience={experience}
         />
 
       </div>
