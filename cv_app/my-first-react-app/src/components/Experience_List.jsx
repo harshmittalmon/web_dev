@@ -1,50 +1,47 @@
 import { useState } from "react";
-import Experience from "./AddExperience";
+
 import Button from "./Button";
 import AddExperience from "./AddExperience"
-export default function ({
-  onAddExperience,
-  onDeleteExperience,
-  experiences,  
-}) {
-  const [ FormState, setFormState] = useState(false);
-  function handleFormState(){
-    setFormState(FormState=> !FormState);
+import Experience from "./Experience"
+
+export default function ({ handleAddExperience, handleDeleteExperience, experience }) {
+
+  const [showForm, toggleForm] = useState(false);
+  function toggle() {
+    toggleForm(!showForm);
   }
   return (
-    <div className="qualifications">
-        <h3>Experiences</h3> 
-        <div className="pd_line"></div>
-        
-        <ul>
-            {
-                experiences.map(
-                    (exp)=>(
-                        <Experience  key = {exp.id} exp = {exp } onDelete = {onDeleteExperience}
-                        />
-                    )   
-                )
-            }
-        </ul>
 
+    <div className="qualifications">
+      <h3>Experiences</h3>
+      <div className="pd_line"></div>
+
+      <ul>
         {
-            !FormState  &&
-            <Button text = "Add Experience" classname="add_qualification" onClick={handleFormState} />
+          experience.map(
+            (exp) => (
+              <Experience key={exp.id} exp={exp} onDelete={handleDeleteExperience}
+              />
+            )
+          )
         }
-        {
-            FormState && 
+      </ul>
+
+      {
+        showForm ?
+          <>
             <AddExperience
-            
-             onDeleteExperience = {onDeleteExperience}
-             onAddExperience = {onAddExperience}
-             experiences = { experiences }
-             handleFormState = {handleFormState}
+              onAddExperience={handleAddExperience}
+              handleFormState={toggle}
             />
-        }
-        
-        {
-            FormState && <Button text ="Cancel" classname ="add_qualification" onClick={handleFormState}/>
-        }
+            <Button text="Cancel" classname="add_qualification" onClick={toggle} />
+          </> :
+          <>
+            <Button text="Add Experience" classname="add_qualification" onClick={toggle} />
+          </>
+
+      }
+
     </div>
   );
 }
