@@ -11,8 +11,7 @@ export default function ({ handleAddExperience, handleDeleteExperience, experien
     toggleForm(!showForm);
   }
   return (
-
-    <div className="qualifications">
+    <div className="qualifications experiences">
       <h3>Experiences</h3>
       <div className="pd_line"></div>
 
@@ -37,7 +36,7 @@ export default function ({ handleAddExperience, handleDeleteExperience, experien
             <Button text="Cancel" classname="add_qualification" onClick={toggle} />
           </> :
           <>
-            <Button text="Add Experience" classname="add_qualification" onClick={toggle} />
+            <Button text="Add Experience" classname="add_qualification" onClick={(toggle)} />
           </>
 
       }

@@ -73,7 +73,11 @@ header{
   width: 100%;
   background-color: rgb(255, 251, 251);
 }
-
+.pd_line_black{
+  height : 2px;
+  width: 100%;
+  background-color: rgb(0, 0, 0);
+}
 .personal_details > *{
   display: flex;
   width: 100%;
@@ -110,7 +114,7 @@ ul{
   display: flex;
   flex-direction: column;
 }
-.qualification_course_and_university::first-line{
+.qualification_course_and_university::first-line, .Experience_detail_heading::first-line{
   color: rgb(0, 0, 0); 
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
@@ -127,7 +131,71 @@ ul{
   background-color: rgb(202, 151, 192);
 }
 
+.experiences{
+  grid-row: 3;
+}
+
 .label{
   display: flex;
   justify-content: space-between;
+}
+
+.display_cv{
+  background-color: #ffffff;
+  grid-row:1 / span 3;
+  grid-column: 2;
+  box-shadow: 1rem 2rem 5rem #0000000f;
+  @media only screen and (max-width  : 1100px) {
+    grid-row: 4;
+    grid-column: 1;
+  }
+}
+.display_cv_body{
+  padding: 2rem;
+}
+.display_cv_header{
+  background-color: rgb(226, 232, 231);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+
+}
+.display_cv_header h1{
+  padding: 1rem;
+  font-size: 3rem;
+}
+.display_cv_experience > :first-child, .display_cv_qualification > :first-child{
+  display: flex;
+  justify-content: space-between;
+}
+.display_cv_para{
+  background-color: black;
+  height: 10vh;
+}
+.letter_and_phone_icons{
+  padding: 2rem;
+  color: black; 
+  width: 30%;
+}
+.letter_and_phone_icons img{
+  height: 2rem;
+  width: 2rem
+}
+@media only screen and ( max-width : 800px ){
+  .display_cv_header h1{
+    font-size: 2rem ;
+  }
+  .display_cv_body{
+    padding: 1rem; 
+  }
+  .display_cv_header{
+    padding: 1rem;
+  }
+  .letter_and_phone_icons{
+    padding: 1rem;
+    color: black; 
+    width: auto;
+  }
+
 }
