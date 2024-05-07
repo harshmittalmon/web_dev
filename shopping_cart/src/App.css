@@ -1,0 +1,17 @@
+@import url("./css_modules/header.css"); 
+@import url("./css_modules/utility.css");
+@import url("./css_modules/home.css");
+:root{
+  --turqo : turquoise;
+  --curr : black; 
+}
+body{
+  width: 100%;
+  
+}
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}

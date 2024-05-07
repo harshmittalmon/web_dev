@@ -1,0 +1,41 @@
+.header{
+    position : fixed;
+    top: 0;left: 0;
+    align-items: center;
+    padding: 2rem;
+    background-color: azure;
+    width: 100%;
+    max-height: 10vh;
+    box-shadow:0 0 8px;
+}
+.main-logo{
+    column-gap: 1rem;
+    font-size:  calc( 0.8rem + 1vw);
+    font-family :'Courier New', Courier, monospace;
+    font-weight: 800;
+}
+.main-logo span :first-child{
+    color: var(--turqo); 
+}
+.main-logo img{
+    width: calc( 50px + 1vw);    
+}
+.header-nav{
+    font-size: calc(1rem+1vw);
+    padding: 1rem;
+    height: 50%;
+    justify-content: space-evenly;
+    width: 50%;
+}
+.home-link , .category-link , .cart-link { 
+    padding: 2rem;
+    
+    color: rgb(169, 168, 168);
+    transition: 0.3s all ease-out;
+}
+.home-link:hover , .category-link:hover , .cart-link:hover {
+    color: black;
+    border-radius: 5px;
+    cursor: pointer;
+    
+} 
