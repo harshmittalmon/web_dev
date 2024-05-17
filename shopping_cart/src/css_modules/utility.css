@@ -10,3 +10,12 @@
 .space-around{
     justify-content: space-around;
 }
+.space-between{
+    justify-content: space-between;
+}
+.justify-right{
+    justify-content: right;
+}
+.reverse-character{
+    transform: rotate(-180deg);
+}

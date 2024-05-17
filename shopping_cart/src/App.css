@@ -6,12 +6,16 @@
   --curr : black; 
 }
 body{
-  width: 100%;
+  width: 100vw;
   
+  
+
 }
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  
 }
