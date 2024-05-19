@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Card from "./card";
 
 export default function Electronics() {
   const [electronicsList, setElectronicsList] = useState([]);
@@ -9,15 +10,27 @@ export default function Electronics() {
         setElectronicsList(res);
       });
   }, []);
-  return <div>
+  return <div className="electronics">
+    <h1>Shop Electronics</h1>
+    <div className="electronics-container">
     {
       electronicsList.map(
         (element) => {
           return (
-            <div> {element.title}</div>
+            <Card 
+            image_src={element.image}
+            heading = {element.heading}
+            rating = {element.rating}
+            description={element.description}
+            price= {element.price}
+            id = {element.id}
+            category={element.category}
+            />
           )
         }
       )
     }
+    </div>
+
   </div>;
 }

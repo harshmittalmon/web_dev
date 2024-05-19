@@ -6,7 +6,7 @@ export default function Jewellery() {
     () => {
         fetch("https://fakestoreapi.com/products/category/jewelery")
     },[]
-  )
+  ) 
   return (
     <div>
         Welcome to Jewellery 

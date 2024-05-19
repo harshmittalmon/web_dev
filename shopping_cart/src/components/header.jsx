@@ -7,18 +7,42 @@ import cart from "../assets/cart.svg";
 import { func } from "prop-types";
 export default function Header() {
   const [categoryState, setCategoryState] = useState(false);
-  function toggleCategoryState(e) {
+  const [cartState, setCartState] = useState(false);
+  
+
+  useEffect(
+    () => {
+      if(categoryState){
+        window.addEventListener('click',setCategoryState(false));
+        toggleCategoryState();
+      }
+    },[]
+  )
+  function toggleCategoryState() {
     setCategoryState((categoryState) => !categoryState);
   }
-  function openCart(){
-    const cart = document.querySelector(".cart");
-    cart.classList.add("activate-cart");
+
+
+  function openCart() {
+    setCartState(true);
   }
-  function closeShopping(){
+
+  function closeCart() {
+    setCartState(false);
+  }
+
+  function openCart() {
+    cart.classList.add("activate-cart");
+    // const cart = document.querySelector(".cart");
+    
+    // const card = document.querySelector(".card");
+    // card.style.width = "400px";
+  }
+  function closeShopping() {
     const cart = document.querySelector(".cart");
     cart.classList.remove("activate-cart");
-
   }
+
   return (
     <>
       <div class="header flex space-between align-center">
@@ -43,7 +67,7 @@ export default function Header() {
             />
           </span>
           <span className="cart-link">
-            <Link >
+            <Link>
               <img src={cart} alt="" onClick={openCart} />
             </Link>
             <div className="cart-count">0</div>
@@ -57,28 +81,28 @@ export default function Header() {
               <div className="sub-menu-list flex">
                 <div className="sub-menu-list-link">
                   {" "}
-                  <Link onClick={toggleCategoryState} to="/allproducts">
+                  <Link onClick={toggleCategoryState} to="/shop/allproducts">
                     {" "}
                     All Products{" "}
                   </Link>{" "}
                 </div>
                 <div className="sub-menu-list-link">
-                  <Link onClick={toggleCategoryState} to="/electronics">
+                  <Link onClick={toggleCategoryState} to="/shop/electronics">
                     Electronics
                   </Link>
                 </div>
                 <div className="sub-menu-list-link">
-                  <Link onClick={toggleCategoryState} to="/jewellery">
+                  <Link onClick={toggleCategoryState} to="/shop/jewellery">
                     Jewellery
                   </Link>
                 </div>
                 <div className="sub-menu-list-link">
-                  <Link onClick={toggleCategoryState} to="/mensclothing">
+                  <Link onClick={toggleCategoryState} to="/shop/mensclothing">
                     Men's Clothing
                   </Link>
                 </div>
                 <div className="sub-menu-list-link">
-                  <Link onClick={toggleCategoryState} to="/womensclothing">
+                  <Link onClick={toggleCategoryState} to="/shop/womensclothing">
                     Women's Clothing
                   </Link>
                 </div>
@@ -87,18 +111,21 @@ export default function Header() {
           </div>
         </nav>
       </div>
-      <div className ="cart">
-        <h1>Cart</h1>
-        <ul className ="listCard">
-          
-        </ul>
+      <div className="cart">
+        <h2> Cart Items</h2>
+        <ul className="listCard"></ul>
 
-        <div className ="checkOut">
-          <div className ="total">0</div>
-          <div className ="close-shopping" onClick={closeShopping}>Close</div>
+        <div className="checkOut">
+          <div className="total">0</div>
+          <div className="close-shopping" onClick={closeShopping}>
+            Close
+          </div>
         </div>
       </div>
       <Outlet />
+      <div className="super-overlay">
+        
+      </div>
     </>
   );
 }

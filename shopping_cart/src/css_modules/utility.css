@@ -19,3 +19,9 @@
 .reverse-character{
     transform: rotate(-180deg);
 }
+.opacity{
+    opacity: 1;
+}
+.not-opacity{
+    opacity: none;
+}
