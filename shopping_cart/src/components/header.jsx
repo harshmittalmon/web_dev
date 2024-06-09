@@ -9,7 +9,13 @@ export default function Header() {
   const [categoryState, setCategoryState] = useState(false);
   const [cartState, setCartState] = useState(false);
   
+  function openCart() {
+    setCartState(true);
+  }
 
+  function closeCart() {
+    setCartState(false);
+  }
   useEffect(
     () => {
       if(categoryState){
@@ -19,24 +25,22 @@ export default function Header() {
     },[]
   )
   function toggleCategoryState() {
+    const overlay = document.querySelector(".super-overlay");
+    if(categoryState){
+      overlay.style.display = "none";
+    }
+    else{
+      overlay.style.display = "block";
+    }
     setCategoryState((categoryState) => !categoryState);
+    
   }
 
 
-  function openCart() {
-    setCartState(true);
-  }
-
-  function closeCart() {
-    setCartState(false);
-  }
+  
 
   function openCart() {
     cart.classList.add("activate-cart");
-    // const cart = document.querySelector(".cart");
-    
-    // const card = document.querySelector(".card");
-    // card.style.width = "400px";
   }
   function closeShopping() {
     const cart = document.querySelector(".cart");
@@ -59,7 +63,7 @@ export default function Header() {
           <span className="home-link">
             <Link to="/home">Home</Link>
           </span>
-          <span className="category-link" onClick={toggleCategoryState}>
+          <span className="category-link" onClick={() => toggleCategoryState()}>
             <a>Shop</a>
             <img
               src={downarrow}
@@ -123,7 +127,7 @@ export default function Header() {
         </div>
       </div>
       <Outlet />
-      <div className="super-overlay">
+      <div className="super-overlay" onClick={toggleCategoryState}>
         
       </div>
     </>
