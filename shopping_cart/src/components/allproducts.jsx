@@ -1,13 +1,19 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react';
 import Card from './card';
+import { v4 as uuidv4 } from "uuid";
+
 export default function AllProducts() {
   const [productArray,setProductArray] = useState([]);
   useEffect(() => {
     fetch('https://fakestoreapi.com/products')
       .then((res) => res.json())
       .then((data) => {
-        setProductArray(data);
+        const productsWithIds = data.map(product => ({
+          ...product,
+          id: product.id || uuidv4() // Ensure each product has a unique ID
+        }));
+        setProductArray(productsWithIds);
       })
       .catch((error) => {
         console.error('Error fetching data:', error);
@@ -38,6 +44,7 @@ export default function AllProducts() {
               price = {element.price}
               id = {element.id}
               category = {element.category}
+              key = {element.id}
               />
             
           )

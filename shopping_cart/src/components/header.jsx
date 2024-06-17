@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import basket from "../assets/basket.svg";
 import { Outlet } from "react-router-dom";
 import { Link } from "react-router-dom";
 import downarrow from "../assets/down-arrow.svg";
 import cart from "../assets/cart.svg";
 import { func } from "prop-types";
+import { ShopContext } from "../App";
+
 export default function Header() {
   const [categoryState, setCategoryState] = useState(false);
   const [cartState, setCartState] = useState(false);
@@ -12,6 +14,10 @@ export default function Header() {
   function openCart() {
     setCartState(true);
   }
+
+
+  const { cartItems , addToCart} = useContext(ShopContext);
+
 
   function closeCart() {
     setCartState(false);
@@ -37,9 +43,10 @@ export default function Header() {
   }
 
 
-  
 
-  function openCart() {
+  function openCart(e) {
+    e.preventDefault();
+    const cart = document.querySelector(".cart");
     cart.classList.add("activate-cart");
   }
   function closeShopping() {
@@ -115,9 +122,21 @@ export default function Header() {
           </div>
         </nav>
       </div>
+
+
+      
       <div className="cart">
         <h2> Cart Items</h2>
-        <ul className="listCard"></ul>
+        <ul className="listCard">
+
+          {
+            // cartItems.map(
+            //   (element) => {
+            //     return  <div> { element.title} </div>
+            //   }
+            // )
+          }
+        </ul>
 
         <div className="checkOut">
           <div className="total">0</div>
@@ -126,6 +145,8 @@ export default function Header() {
           </div>
         </div>
       </div>
+
+
       <Outlet />
       <div className="super-overlay" onClick={toggleCategoryState}>
         
