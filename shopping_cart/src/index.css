@@ -56,22 +56,9 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  border-color: #000000;
 }
 
-.add-remove{
-  background-color: rgb(247, 247, 247);
-  padding: 0.2rem;
-}
-.card button{
-  width: 20%;
-  background-color: rgb(226, 226, 226);
-
-}
 
 h1{
   color: rgb(3, 112, 116);
@@ -80,7 +67,7 @@ h1{
   position: sticky;
   background-color: white;
   width: 100%;
-  box-shadow: 0 0 3px 1px black;
+  box-shadow: 0px 3px 6px rgba(0,0,0,0.4);
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 

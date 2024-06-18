@@ -16,7 +16,7 @@ export default function Header() {
   }
 
 
-  const { cartItems , addToCart} = useContext(ShopContext);
+  const { cartItems , addToCart } = useContext(ShopContext);
 
 
   function closeCart() {
@@ -139,7 +139,7 @@ export default function Header() {
         </ul>
 
         <div className="checkOut">
-          <div className="total">0</div>
+          <div className="total">10</div>
           <div className="close-shopping" onClick={closeShopping}>
             Close
           </div>

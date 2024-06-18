@@ -23,9 +23,9 @@ export default function Home() {
 
   const { cartItems , addToCart} = useContext(ShopContext);
   
-  // console.log(cartItems);
+  console.log(cartItems);
   return (
-    <div className="home card">
+    <div className="home">
       <h1 className="welcome-heading"> Welcome to Market Basket!</h1>
       <p>
         Checkout some of the <span>BEST SELLERS !</span>{" "}

@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import star from "../assets/star.svg"
+import { ShopContext } from "../App";
 export default function Card({
   image_src,
   heading,
@@ -9,6 +10,8 @@ export default function Card({
   id,
   category,
 }) {
+
+  const {cartItems,addToCart,removeFromCart} = useContext(ShopContext);
 
   const renderStars = (rating) => {
     const totalStars = 5;
@@ -27,8 +30,7 @@ export default function Card({
 
     return stars;
   };
-  const overlay = document.querySelector(".overlay");
-  // overlay.addEventListener
+
   return (
     <div className="card">
       <div className="img-container flex justify-center align-center">
@@ -38,12 +40,18 @@ export default function Card({
       <div className="price">
         ${price}
       </div>
-      {/* <button>
-        Add
-      </button> */}
-      <div className="add-remove flex space-between">
-        <button>-</button><button>+</button>
+      <div>
+        {()=> {
+          renderStars(2)
+        }}
       </div>
+      {
+        cartItems.includes(id) ? 
+        <button onClick={() => removeFromCart(id)}>Remove</button>
+       : <button onClick={() => addToCart(id)}>
+        Add
+      </button>
+      }
     </div>
   );
 }

@@ -5,6 +5,8 @@ export default function Jewellery() {
   useEffect(
     () => {
         fetch("https://fakestoreapi.com/products/category/jewelery")
+        .then(res=>res.json())
+        .then()
     },[]
   ) 
   return (
