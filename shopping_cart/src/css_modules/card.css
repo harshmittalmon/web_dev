@@ -4,23 +4,21 @@
   z-index: 0;
   color: var(--black);
   background-color: #fff;
-  padding: 20px;
+  padding: 0 1rem 1rem 1rem;
   border-radius: 8px;
   box-shadow:  0px 3px 6px  rgba(0, 0, 0, 0.4);
   display: grid;
   grid-template-rows: subgrid;
-  grid-row: span 3;
+  grid-row: span 4;
   gap: 0;
+  height: 200px;
 }
 
 
 .card .img-container {
-  height: 200px;
+  height: 70%;
   min-width: 200px;  
   max-width: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   margin: auto;
 }
 
@@ -30,14 +28,25 @@
   margin: auto;
 }
 
-.card p {
-  /* height: 80px; */
+.card h5 {
   overflow-y: hidden;
   color: var(--curr);
   margin: auto;
-  margin-top: 1rem;
 }
 
+.card h6{
+  color: var(--curr);
+}
+
+
+.card-rating img{
+  height: 20px;
+}
+
+.card-rating {
+  color: var(--curr);
+  font-weight: 600;
+}
 .card button {
   
   background-color: rgb(203, 203, 203);

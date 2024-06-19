@@ -81,7 +81,7 @@ export default function Header() {
             <Link>
               <img src={cart} alt="" onClick={openCart} />
             </Link>
-            <div className="cart-count">0</div>
+            <div className="cart-count">{cartItems.length}</div>
           </span>
           <div
             className={`sub-menu-wrap ${
@@ -139,7 +139,7 @@ export default function Header() {
         </ul>
 
         <div className="checkOut">
-          <div className="total">10</div>
+          <div className="total">4</div>
           <div className="close-shopping" onClick={closeShopping}>
             Close
           </div>
