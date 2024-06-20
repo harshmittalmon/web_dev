@@ -1,15 +1,27 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import basket from "../assets/basket.svg";
 import { Outlet } from "react-router-dom";
 import { Link } from "react-router-dom";
 import downarrow from "../assets/down-arrow.svg";
 import cart from "../assets/cart.svg";
 import { func } from "prop-types";
+import { ShopContext } from "../App";
+
 export default function Header() {
   const [categoryState, setCategoryState] = useState(false);
   const [cartState, setCartState] = useState(false);
   
+  function openCart() {
+    setCartState(true);
+  }
 
+
+  const { cartItems , addToCart } = useContext(ShopContext);
+
+
+  function closeCart() {
+    setCartState(false);
+  }
   useEffect(
     () => {
       if(categoryState){
@@ -19,24 +31,23 @@ export default function Header() {
     },[]
   )
   function toggleCategoryState() {
+    const overlay = document.querySelector(".super-overlay");
+    if(categoryState){
+      overlay.style.display = "none";
+    }
+    else{
+      overlay.style.display = "block";
+    }
     setCategoryState((categoryState) => !categoryState);
-  }
-
-
-  function openCart() {
-    setCartState(true);
-  }
-
-  function closeCart() {
-    setCartState(false);
-  }
-
-  function openCart() {
-    cart.classList.add("activate-cart");
-    // const cart = document.querySelector(".cart");
     
-    // const card = document.querySelector(".card");
-    // card.style.width = "400px";
+  }
+
+
+
+  function openCart(e) {
+    e.preventDefault();
+    const cart = document.querySelector(".cart");
+    cart.classList.add("activate-cart");
   }
   function closeShopping() {
     const cart = document.querySelector(".cart");
@@ -59,7 +70,7 @@ export default function Header() {
           <span className="home-link">
             <Link to="/home">Home</Link>
           </span>
-          <span className="category-link" onClick={toggleCategoryState}>
+          <span className="category-link" onClick={() => toggleCategoryState()}>
             <a>Shop</a>
             <img
               src={downarrow}
@@ -70,7 +81,7 @@ export default function Header() {
             <Link>
               <img src={cart} alt="" onClick={openCart} />
             </Link>
-            <div className="cart-count">0</div>
+            <div className="cart-count">{cartItems.length}</div>
           </span>
           <div
             className={`sub-menu-wrap ${
@@ -111,19 +122,33 @@ export default function Header() {
           </div>
         </nav>
       </div>
+
+
+      
       <div className="cart">
         <h2> Cart Items</h2>
-        <ul className="listCard"></ul>
+        <ul className="listCard">
+
+          {
+            // cartItems.map(
+            //   (element) => {
+            //     return  <div> { element.title} </div>
+            //   }
+            // )
+          }
+        </ul>
 
         <div className="checkOut">
-          <div className="total">0</div>
+          <div className="total">4</div>
           <div className="close-shopping" onClick={closeShopping}>
             Close
           </div>
         </div>
       </div>
+
+
       <Outlet />
-      <div className="super-overlay">
+      <div className="super-overlay" onClick={toggleCategoryState}>
         
       </div>
     </>

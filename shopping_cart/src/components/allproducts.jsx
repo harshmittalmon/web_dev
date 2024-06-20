@@ -1,49 +1,38 @@
-import React, { useEffect } from 'react'
-import { useState } from 'react';
-import Card from './card';
+import React, { useContext, useEffect } from "react";
+import { useState } from "react";
+import Card from "./card";
+import { v4 as uuidv4 } from "uuid";
+import { ShopContext } from "../App";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
+
 export default function AllProducts() {
-  const [productArray,setProductArray] = useState([]);
+  const { cartItems, products, addToCart } = useContext(ShopContext);
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
-    fetch('https://fakestoreapi.com/products')
-      .then((res) => res.json())
-      .then((data) => {
-        setProductArray(data);
-      })
-      .catch((error) => {
-        console.error('Error fetching data:', error);
-      });
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
   }, []);
-
-
-  // useEffect(() => {
-  //   productArray.map((element) => {
-  //     if (element.category === "men's clothing") {
-  //       console.log(element);
-  //     }
-  //   });
-  // }, [productArray]);
-
+  console.log(cartItems);
   return (
-    <div className='all-products card'>
-      <h1> Shop anything you like </h1>
-      <div className="grid">   
-        {
-          productArray.map(
-            (element) => 
-              <Card 
-              image_src = {element.image}
-              heading = {element.title}
-              rating = {element.rating}
-              description = {element.description}
-              price = {element.price}
-              id = {element.id}
-              category = {element.category}
-              />
-            
-          )
-        }
-
+    <div className="all-products">
+      {loading ? <Skeleton height={50} /> : <h1> Shop anything you like </h1>}
+      <div className="grid">
+        {products.map((element) => (
+          <Card
+            image_src={element.image}
+            heading={element.title}
+            rating={element.rating}
+            description={element.description}
+            price={element.price}
+            id={element.id}
+            category={element.category}
+            key={element.id}
+          />
+        ))}
       </div>
     </div>
-  )
+  );
 }
